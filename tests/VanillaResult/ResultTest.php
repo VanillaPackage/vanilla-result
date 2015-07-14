@@ -14,6 +14,8 @@ class ResultTest extends PHPUnit_Framework_TestCase
      * @covers Rentalhost\VanillaResult\Result::setStatus
      * @covers Rentalhost\VanillaResult\Result::getMessage
      * @covers Rentalhost\VanillaResult\Result::setMessage
+     * @covers Rentalhost\VanillaResult\Result::getData
+     * @covers Rentalhost\VanillaResult\Result::setData
      */
     public function testBasic()
     {
@@ -22,6 +24,7 @@ class ResultTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($result->isSuccess());
         $this->assertTrue($result->getStatus());
         $this->assertNull($result->getMessage());
+        $this->assertNull($result->getData());
 
         $result = new Result(false, "test");
 
@@ -37,5 +40,11 @@ class ResultTest extends PHPUnit_Framework_TestCase
         $result->setMessage("fail");
 
         $this->assertSame("fail", $result->getMessage());
+
+        $result = new Result(true, "success", [ "example" => true ]);
+        $this->assertSame([ "example" => true ], $result->getData());
+
+        $result->setData([ "example" => false ]);
+        $this->assertSame([ "example" => false ], $result->getData());
     }
 }

@@ -11,20 +11,28 @@ class Result
     private $status;
 
     /**
-     * Stores de message.
+     * Stores the message.
      * @var string
      */
     private $message;
 
     /**
+     * Stores some additional data.
+     * @var mixed
+     */
+    private $data;
+
+    /**
      * Construct a result.
      * @param boolean $status  Status.
      * @param string  $message Message of result.
+     * @param mixed   $data    Additional data.
      */
-    public function __construct($status = true, $message = null)
+    public function __construct($status = true, $message = null, $data = null)
     {
         $this->setStatus($status);
         $this->message = $message;
+        $this->data = $data;
     }
 
     /**
@@ -70,5 +78,23 @@ class Result
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * Redefine additional data.
+     * @param mixed $data Additional data.
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * Get current data.
+     * @return mixed
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 }
