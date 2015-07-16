@@ -8,19 +8,19 @@ class Result
      * Stores the status.
      * @var boolean
      */
-    private $status;
+    protected $status;
 
     /**
      * Stores the message.
      * @var string
      */
-    private $message;
+    protected $message;
 
     /**
      * Stores some additional data.
      * @var mixed
      */
-    private $data;
+    protected $data;
 
     /**
      * Construct a result.
