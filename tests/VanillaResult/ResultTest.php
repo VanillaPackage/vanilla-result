@@ -46,5 +46,9 @@ class ResultTest extends PHPUnit_Framework_TestCase
 
         $result->setData([ "example" => false ]);
         $this->assertSame([ "example" => false ], $result->getData());
+
+        $this->assertSame(false, $result->getData("example"));
+        $this->assertSame(null, $result->getData("exampleUnknow"));
+        $this->assertSame("alternativeReturn", $result->getData("exampleUnknow", "alternativeReturn"));
     }
 }

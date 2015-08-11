@@ -91,10 +91,22 @@ class Result
 
     /**
      * Get current data.
+     * Optionally, you can pass key to return.
+     * @param string $key          Key name to return.
+     * @param mixed  $defaultValue Value to return if key not exists.
      * @return mixed
      */
-    public function getData()
+    public function getData($key = null, $defaultValue = null)
     {
+        // Returns the key, instead of all data.
+        if ($key !== null) {
+            if (!array_key_exists($key, $this->data)) {
+                return $defaultValue;
+            }
+
+            return $this->data[$key];
+        }
+
         return $this->data;
     }
 }
