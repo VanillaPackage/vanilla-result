@@ -21,34 +21,34 @@ class ResultTest extends PHPUnit_Framework_TestCase
     {
         $result = new Result;
 
-        $this->assertTrue($result->isSuccess());
-        $this->assertTrue($result->getStatus());
-        $this->assertNull($result->getMessage());
-        $this->assertNull($result->getData());
+        static::assertTrue($result->isSuccess());
+        static::assertTrue($result->getStatus());
+        static::assertNull($result->getMessage());
+        static::assertNull($result->getData());
 
-        $result = new Result(false, "test");
+        $result = new Result(false, 'test');
 
-        $this->assertFalse($result->isSuccess());
-        $this->assertFalse($result->getStatus());
-        $this->assertSame("test", $result->getMessage());
+        static::assertFalse($result->isSuccess());
+        static::assertFalse($result->getStatus());
+        static::assertSame('test', $result->getMessage());
 
         $result->setStatus(1);
 
-        $this->assertTrue($result->isSuccess());
-        $this->assertTrue($result->getStatus());
+        static::assertTrue($result->isSuccess());
+        static::assertTrue($result->getStatus());
 
-        $result->setMessage("fail");
+        $result->setMessage('fail');
 
-        $this->assertSame("fail", $result->getMessage());
+        static::assertSame('fail', $result->getMessage());
 
-        $result = new Result(true, "success", [ "example" => true ]);
-        $this->assertSame([ "example" => true ], $result->getData());
+        $result = new Result(true, 'success', [ 'example' => true ]);
+        static::assertSame([ 'example' => true ], $result->getData());
 
-        $result->setData([ "example" => false ]);
-        $this->assertSame([ "example" => false ], $result->getData());
+        $result->setData([ 'example' => false ]);
+        static::assertSame([ 'example' => false ], $result->getData());
 
-        $this->assertSame(false, $result->getData("example"));
-        $this->assertSame(null, $result->getData("exampleUnknow"));
-        $this->assertSame("alternativeReturn", $result->getData("exampleUnknow", "alternativeReturn"));
+        static::assertSame(false, $result->getData('example'));
+        static::assertSame(null, $result->getData('exampleUnknow'));
+        static::assertSame('alternativeReturn', $result->getData('exampleUnknow', 'alternativeReturn'));
     }
 }

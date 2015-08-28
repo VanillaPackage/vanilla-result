@@ -24,6 +24,7 @@ class Result
 
     /**
      * Construct a result.
+     *
      * @param boolean $status  Status.
      * @param string  $message Message of result.
      * @param mixed   $data    Additional data.
@@ -46,11 +47,12 @@ class Result
 
     /**
      * Redefine current status.
+     *
      * @param boolean $status Status.
      */
     public function setStatus($status)
     {
-        $this->status = boolval($status);
+        $this->status = (bool) $status;
     }
 
     /**
@@ -64,6 +66,7 @@ class Result
 
     /**
      * Redefine current message.
+     *
      * @param string $message Message.
      */
     public function setMessage($message)
@@ -82,6 +85,7 @@ class Result
 
     /**
      * Redefine additional data.
+     *
      * @param mixed $data Additional data.
      */
     public function setData($data)
@@ -92,8 +96,10 @@ class Result
     /**
      * Get current data.
      * Optionally, you can pass key to return.
+     *
      * @param string $key          Key name to return.
      * @param mixed  $defaultValue Value to return if key not exists.
+     *
      * @return mixed
      */
     public function getData($key = null, $defaultValue = null)
