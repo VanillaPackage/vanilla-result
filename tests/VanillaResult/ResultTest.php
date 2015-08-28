@@ -4,6 +4,10 @@ namespace Rentalhost\VanillaResult;
 
 use PHPUnit_Framework_TestCase;
 
+/**
+ * Class ResultTest
+ * @package Rentalhost\VanillaResult
+ */
 class ResultTest extends PHPUnit_Framework_TestCase
 {
     /**

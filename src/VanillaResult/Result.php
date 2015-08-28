@@ -2,6 +2,10 @@
 
 namespace Rentalhost\VanillaResult;
 
+/**
+ * Class Result
+ * @package Rentalhost\VanillaResult
+ */
 class Result
 {
     /**
