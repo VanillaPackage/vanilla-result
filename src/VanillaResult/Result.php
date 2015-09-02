@@ -110,7 +110,7 @@ class Result
     {
         // Returns the key, instead of all data.
         if ($key !== null) {
-            if (!array_key_exists($key, $this->data)) {
+            if (!is_array($this->data) || !array_key_exists($key, $this->data)) {
                 return $defaultValue;
             }
 

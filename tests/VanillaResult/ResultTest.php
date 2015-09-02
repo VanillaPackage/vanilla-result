@@ -54,5 +54,10 @@ class ResultTest extends PHPUnit_Framework_TestCase
         static::assertSame(false, $result->getData('example'));
         static::assertSame(null, $result->getData('exampleUnknow'));
         static::assertSame('alternativeReturn', $result->getData('exampleUnknow', 'alternativeReturn'));
+
+        $result = new Result();
+
+        static::assertNull($result->getData('emptyData'));
+        static::assertSame('ok', $result->getData('emptyData', 'ok'));
     }
 }
